@@ -1,0 +1,58 @@
+//switch configure
+
+en
+show vlan brief
+vlan 10
+vlan 20
+vlan 30
+ctrl z
+show vlan brief
+configure terminal
+vlan 10
+name students
+vl 20
+name faculty
+vl 30
+name Guest
+ctrl z
+show vlan brief
+configure terminal
+interface fastEthernet 0/1
+switchport mode access
+switchport access vlan 10
+ctrl z
+show vlan brief
+configure terminal
+interface fastEthernet 0/2
+switchport mode access
+switchport access vlan 20
+ctrl z
+show vlan brief
+configure terminal
+interface fastEthernet 0/3
+switchport mode access
+switchport access vlan 30
+
+//router configuration
+en
+configure terminal
+interface gigabitEthernet 0/0.10
+encapsulation dot1Q 10
+ip address 192.168.10.1 255.255.255.0
+exit
+interface gigabitEthernet 0/0.20
+encapsulation dot1Q 20
+ip address 192.168.20.1 255.255.255.0
+exit
+interface gigabitEthernet 0/0.30
+encapsulation dot1Q 30
+ip address 192.168.30.1 255.255.255.0
+ctrl z
+show ip interface brief
+
+// for down to up
+configure terminal
+interface gigabitEthernet 0/0
+no shutdown
+ctrl z
+
